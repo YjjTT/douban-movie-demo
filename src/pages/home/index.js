@@ -81,11 +81,26 @@ class Home extends Component {
             <div className="doulist">
               <h2>热门豆列</h2>
               <ul>
-                <li><div className="title"><a href="/">意外结局+高智商</a></div></li>
-                <li><div className="title"><a href="/">【豆瓣高分纪录片/其它】(1/2)</a></div></li>
-                <li><div className="title"><a href="/">黑色电影</a></div></li>
-                <li><div className="title"><a href="/">【你连名字都那么牛逼】</a></div></li>
-                <li><div className="title"><a href="/">100部载入影史的非英语电影</a></div></li>
+                <li>
+                  <span>2191推荐</span>
+                  <div className="title"><a href="/">意外结局+高智商</a></div>
+                </li>
+                <li>
+                  <span>2191推荐</span> 
+                  <div className="title"><a href="/">【豆瓣高分纪录片/其它】(1/2)</a></div>
+                </li>
+                <li>
+                  <span>2191推荐</span>
+                  <div className="title"><a href="/">黑色电影</a></div>
+                </li>
+                <li>
+                  <span>2191推荐</span>
+                  <div className="title"><a href="/">【你连名字都那么牛逼】</a></div>
+                </li>
+                <li>
+                  <span>2191推荐</span>
+                  <div className="title"><a href="/">100部载入影史的非英语电影</a></div>
+                </li>
               </ul>
             </div>
           </div>
