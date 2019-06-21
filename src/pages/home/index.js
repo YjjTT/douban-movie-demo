@@ -37,7 +37,7 @@ class Home extends Component {
                   <label>动画</label>
                 </div>
               </div>
-              <div className="tool">
+              <div className="tool clearfix">
                 <div className="sort">
                   <Group value={1}>
                     <Radio value={1}>按热度排序</Radio>
@@ -73,70 +73,20 @@ class Home extends Component {
                     <strong>6.2</strong>
                   </p>
                 </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
               </div>
+              <a className="more" href="javascript:;">加载更多</a>
+            </div>
+          </div>
+          <div className="aside">
+            <div className="doulist">
+              <h2>热门豆列</h2>
+              <ul>
+                <li><div className="title"><a href="/">意外结局+高智商</a></div></li>
+                <li><div className="title"><a href="/">【豆瓣高分纪录片/其它】(1/2)</a></div></li>
+                <li><div className="title"><a href="/">黑色电影</a></div></li>
+                <li><div className="title"><a href="/">【你连名字都那么牛逼】</a></div></li>
+                <li><div className="title"><a href="/">100部载入影史的非英语电影</a></div></li>
+              </ul>
             </div>
           </div>
         </div>

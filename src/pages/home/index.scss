@@ -87,6 +87,51 @@
           }
         }
       }
+      .more{
+        display: block;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        font-size: 14px;
+        background: #f7f7f7;
+        color: #37a;
+      }
+    }
+  }
+  .aside{
+    width: 300px;
+    float: right;
+    .doulist{
+      margin-bottom: 40px;
+      h2{
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 10px;
+        font-size: 15px;
+        color: #072;
+        margin: 0 0 12px 0;
+        line-height: 150%;
+      }
+      ul {
+        border-top: 1px solid #eee;
+        li {
+          position: relative;
+          padding: 15px 0;
+          border-bottom: 1px solid #eee;
+          zoom: 1;
+        }
+      }
+      .title{
+        width: 247px;
+      }
+      a {
+        font-size: 13px;
+        color: #666699;
+        text-decoration: none;
+        &:link{
+          color: #37a;
+        }
+      }
     }
   }
 }
