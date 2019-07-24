@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './index.scss';
 import { Radio, Checkbox } from 'antd';
+import axios from 'axios'
 
 const Group = Radio.Group;
 const CheckGroup = Checkbox.Group;
@@ -9,6 +10,21 @@ const plainOptions = ['我没看过的', '可在线播放'];
 const defaultCheckedList = [];
 
 class Home extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+
+    }
+  }
+  componentDidMount(){
+    axios({
+      method: 'get',
+      url: '/apb/j/search_tags?type=movie&source=index'
+    }).then(res=>{
+      console.log(res);
+    })
+  }
   render () {
     return (
       <div className="wrapper">
