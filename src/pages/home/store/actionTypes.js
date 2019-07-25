@@ -1,0 +1,1 @@
+export const GET_HOT_MOVIE_TAGS = 'GET_HOT_MOVIE_TAGS'
