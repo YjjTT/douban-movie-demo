@@ -57,7 +57,7 @@ class Home extends Component {
       if (res.status === 200) {
         const result = res.data.subjects;
         this.setState({
-          hotMovies: result.slice(0, 10)
+          hotMovies: result.slice(0, 20)
         });
       }
     });
@@ -162,6 +162,7 @@ class Home extends Component {
                   </div>
                 ))}
               </div>
+
               <a className="more" href="javascript:;">
                 加载更多
               </a>
