@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import './index.scss';
 import { Radio, Checkbox } from 'antd';
 import axios from 'axios'
+import { connect } from 'react-redux'  
+import { Link } from 'react-router-dom'
+
 
 const Group = Radio.Group;
 const CheckGroup = Checkbox.Group;
@@ -14,18 +17,52 @@ class Home extends Component {
   constructor(){
     super();
     this.state = {
-
+      hotMovieTags: [],
+      hotMovies: [],
+      currentMovieTagIndex: 0
     }
   }
-  componentDidMount(){
+  componentWillMount(){
+
+    this.loadHotMovieTags()
+  }
+  // 热门标签电影
+  loadHotMovieTags(){
     axios({
       method: 'get',
       url: '/apb/j/search_tags?type=movie&source=index'
     }).then(res=>{
-      console.log(res);
+      if(res.status === 200){
+        this.setState({
+          hotMovieTags: res.data.tags
+        })
+        this.loadHotMoives(res.data.tags[this.state.currentMovieTagIndex])
+      }
+    })
+  }
+  // 热门电影标签点击
+  handleClickHotMovieTagClick = (index) => {
+    this.setState({
+      currentMovieTagIndex: index
+    })
+    this.loadHotMoives(this.state.hotMovieTags[index])
+  }
+  // 获取热门电影
+  loadHotMoives(tag){
+    axios({
+      method: 'get',
+      url: `/apb/j/search_subjects?type=movie&tag=${tag}&page_limit=50&page_start=0`
+    }).then(res=>{
+      if(res.status === 200){
+        const result = res.data.subjects
+        this.setState({
+          hotMovies: result
+        })
+      }
     })
   }
   render () {
+    const { hotMovieTags,hotMovies } = this.state;
     return (
       <div className="wrapper">
         <div className="content clearfix">
@@ -34,23 +71,11 @@ class Home extends Component {
             <div className="filter">
               <div className="tags">
                 <div className="tag_list">
-                  <label className='activate'>热门</label>
-                  <label>最新</label>
-                  <label>经典</label>
-                  <label>可播放</label>
-                  <label>豆瓣高分</label>
-                  <label>冷门佳片</label>
-                  <label>华语</label>
-                  <label>欧美</label>
-                  <label>韩国</label>
-                  <label>日本</label>
-                  <label>动作</label>
-                  <label>喜剧</label>
-                  <label>爱情</label>
-                  <label>科幻</label>
-                  <label>悬疑</label>
-                  <label>恐怖</label>
-                  <label>动画</label>
+                  {
+                    hotMovieTags.map((item, index) => (
+                      <span onClick={this.handleClickHotMovieTagClick.bind(this, index)} className={`cate ${index===this.state.currentMovieTagIndex?'activate':''}`} key={index}>{item}</span>
+                    ))
+                  }
                 </div>
               </div>
               <div className="tool clearfix">
@@ -68,27 +93,28 @@ class Home extends Component {
                 </div>
               </div>
               <div className="list">
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    <span className="green">
-                      <img src="https://img3.doubanio.com/f/movie/caa8f80abecee1fc6f9d31924cef8dd9a24c7227/pics/movie/ic_new.png" alt="" className="new"/>
-                      谋杀议案
-                    </span>
-                    <strong>6.1</strong>
-                  </p>
-                </a>
-                <a href="/" target="_blank" className="item">
-                  <div className="cover-wp">
-                    <img src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2559578757.jpg" alt="谋杀议案"/>
-                  </div>
-                  <p>
-                    两大无猜
-                    <strong>6.2</strong>
-                  </p>
-                </a>
+                {
+                  hotMovies.map((item, index) => (
+                      <div className='item' key={item.id}>
+                          <div className="cover-wp">
+                              <img src={item.cover} alt={item.title}/>
+                          </div>
+                          <p>
+                              <span className='green'>
+                                  {item.is_new?
+                                  <img 
+                                  src='https://img3.doubanio.com/f/movie/caa8f80abecee1fc6f9d31924cef8dd9a24c7227/pics/movie/ic_new.png' 
+                                  className='new'
+                                  alt="" 
+                                  /> :
+                                  ''}
+                                  {item.title}
+                              </span>
+                              <strong>{item.rate}</strong>
+                          </p>
+                      </div>
+                  ))
+                }
               </div>
               <a className="more" href="javascript:;">加载更多</a>
             </div>
@@ -125,4 +151,8 @@ class Home extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+}
+
 export default Home;
