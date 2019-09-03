@@ -216,7 +216,6 @@ class Home extends Component {
               <a className="more" href="javascript:;">
                 加载更多
               </a>
-
             </div>
           </div>
 
