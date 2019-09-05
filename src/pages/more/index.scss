@@ -1,0 +1,33 @@
+#more {
+  width: 1040px;
+  margin: 0 auto;
+  border: 1px solid red;
+  margin-top: 35px;
+  font-size: 17px;
+  h1 {
+    font-size: 26px;
+    color: #494949;
+  }
+  .content {
+    width: 675px;
+    border: 1px solid red;
+    .tag_list {
+      display: inline;
+      padding-right: 5px;
+      .cate {
+        display: inline-block;
+        cursor: pointer;
+        padding: 1px 10px;
+        margin: 0 3px 5px 0;
+        font-size: 14px;
+        border-radius: 2px;
+        vertical-align: middle;
+        font-family: Tahoma;
+      }
+      .activate {
+        background: #4b8ccb;
+        color: #fff;
+      }
+    }
+  }
+}

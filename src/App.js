@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "../src/common/header";
 import Home from "../src/pages/home";
+import More from '../src/pages/more'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Route exact path="/" component={Home} />
+        <Route exact path="/more" component={More} />
       </BrowserRouter>
     </Provider>
   );

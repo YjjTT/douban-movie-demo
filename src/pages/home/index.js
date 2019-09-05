@@ -5,11 +5,6 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Group = Radio.Group;
-const CheckGroup = Checkbox.Group;
-
-const plainOptions = ["我没看过的", "可在线播放"];
-const defaultCheckedList = [];
 
 class Home extends Component {
   constructor() {
@@ -123,20 +118,6 @@ class Home extends Component {
                   ))}
                 </div>
               </div>
-              {/* <div className="tool clearfix">
-                <div className="sort">
-                  <Group value={1}>
-                    <Radio value={1}>按热度排序</Radio>
-                    <Radio value={2}>按时间排序</Radio>
-                    <Radio value={3}>按评价排序</Radio>
-                  </Group>
-                </div>
-                <div className="check">
-                  <CheckGroup 
-                    options={plainOptions}
-                  />
-                </div>
-              </div> */}
 
               <div className="list">
                 {hotMovies.map((item, index) => (
@@ -163,9 +144,7 @@ class Home extends Component {
                 ))}
               </div>
 
-              <a className="more" href="javascript:;">
-                加载更多
-              </a>
+              <Link to={`more`} className='more'>加载更多</Link>
 
               <h1 style={{marginTop : '20px'}}>选电视剧</h1>
               <div className="tags">
@@ -213,9 +192,7 @@ class Home extends Component {
                   </div>
                 ))}
               </div>
-              <a className="more" href="javascript:;">
-                加载更多
-              </a>
+              <Link to={`more`} className='more'>加载更多</Link>
             </div>
           </div>
 
@@ -262,6 +239,8 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => ({
 
-export default Home;
+});
+
+export default connect(mapStateToProps)(Home);
